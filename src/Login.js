@@ -5,8 +5,8 @@ import {
   Button,
   TextField,
 } from "@material-ui/core";
-import "./App.css";
 import { getByPlaceholderText } from "@testing-library/react";
+import "./Login.css";
 
 const theme = createMuiTheme({
   palette: {
@@ -31,12 +31,18 @@ class Login extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
+        <div>
+          <h1 className="heading">
+            Fresh groceries, delivered right to your door
+          </h1>
+        </div>
         <TextField
           variant="standard"
           type="email"
           label="Email"
           color="primary"
           style={style}
+          onChange = {(event, newValue) => this.setState({username:newValue})}
         ></TextField>
         <br />
         <TextField
@@ -45,12 +51,15 @@ class Login extends Component {
           label="Password"
           color="primary"
           style={style}
+          onChange = {(event, newValue) => this.setState({password:newValue})}
         ></TextField>
         <br />
-        <Button variant="contained" color="primary" style={style}>
+        <Button variant="contained" color="primary" style={style} onClick={(event) => this.handleClick(event)}>
           Sign In
         </Button>
-        <div>Don't have an account? Sign up here</div>
+        <div>
+          <h1 className="body">New to Growceries? Sign up here</h1>
+        </div>
         <Button variant="contained" color="primary" style={style}>
           Sign up
         </Button>
@@ -60,7 +69,7 @@ class Login extends Component {
 }
 
 const style = {
-  margin: 15,
+  margin: 10,
 };
 
 export default Login;

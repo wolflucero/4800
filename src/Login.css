@@ -1,0 +1,11 @@
+.heading {
+    font-family: Merriweather-Regular;
+    font-weight: 700;
+    margin-top: 35px;
+}
+
+.body {
+    font-family: Arial;
+    font-weight: 100;
+    font-size: medium;
+}
