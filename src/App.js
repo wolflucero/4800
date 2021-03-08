@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
+import Signup from "./Signup";
 
 class App extends Component {
   constructor(props) {
@@ -15,19 +16,15 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <Router>
-          <Navbar />
-          <Login />
+      <Router>
+        <div>
           <Switch>
-            <Route path="/" exact />
-            <div className="app">
-              {this.state.loginPage}
-              {this.state.uploadScreen}
-            </div>
+            <Route exact path="/" component={Login} exact />
+            <Route exact path="/Signup" component={Signup} />
+            <Route exact component={Error}/>
           </Switch>
-        </Router>
-      </>
+        </div>
+      </Router>
     );
   }
 }
