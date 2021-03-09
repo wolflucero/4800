@@ -1,7 +1,17 @@
 .heading {
     font-family: Merriweather-Regular;
     font-weight: 700;
-    margin-top: 35px;
+    margin-top: 25px;
+}
+
+.signInHeading {
+    font-family: Merriweather-Regular;
+    font-weight: 100;
+    margin-top: 20px;
+}
+
+.loginContainer {
+    font-family: Arial;
 }
 
 .body {
@@ -10,9 +20,72 @@
     font-size: medium;
 }
 
-.column {
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100;
+}
+
+.leftColumn {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.leftColumn::after {
+    content: "";
+    background: url("./background.jpg");
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.45;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: "100%";
+    width: "100%";
+}
+
+.leftColumn2 {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.rightColumn2 {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.signInFields {
+    align-items: center;
+}
+
+.leftColumnHeading {
+    font-family: Merriweather-Bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.leftColumnBody{
+    font-family: Arial;
+    font-weight: normal;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
 }

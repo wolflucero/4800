@@ -31,42 +31,76 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="column">
-        <ThemeProvider theme={theme}>
-          <div>
-            <Navbar />
-            <h1 className="heading">
-              Fresh groceries, delivered right to your door
-            </h1>
+      <div className="loginContainer">
+        <Navbar />
+        <div>
+          <h1 className="heading">
+            Fresh groceries, delivered right to your door
+          </h1>
+        </div>
+        <div className="row">
+          <div className="leftColumn">
+
           </div>
-          <TextField
-            variant="standard"
-            type="email"
-            label="Email"
-            color="primary"
-            style={style}
-            onChange = {(event, newValue) => this.setState({username:newValue})}
-          ></TextField>
-          <br />
-          <TextField
-            variant="standard"
-            type="password"
-            label="Password"
-            color="primary"
-            style={style}
-            onChange = {(event, newValue) => this.setState({password:newValue})}
-          ></TextField>
-          <br />
-          <Button variant="contained" color="primary" style={style}>
-            Sign In
-          </Button>
-          <div>
-            <h1 className="body">New to Growceries? Sign up here</h1>
+          <div className="rightColumn">
+            <div>
+              <h2 className="signInHeading">
+                Please sign in to continue
+              </h2>
+            </div>
+            <ThemeProvider theme={theme}>
+              <div classname="signInFields">
+                <TextField
+                  variant="standard"
+                  type="email"
+                  label="Email"
+                  color="primary"
+                  onChange = {(event, newValue) => this.setState({username:newValue})}
+                ></TextField>
+              </div>
+              <br />
+              <div classname="signInFields">
+                <TextField
+                  variant="standard"
+                  type="password"
+                  label="Password"
+                  color="primary"
+                  onChange = {(event, newValue) => this.setState({password:newValue})}
+                ></TextField>
+              </div>
+              <br />
+              <div classname="signInFields">
+                <Button variant="contained" type="submit" color="primary" style={style}>
+                  Sign In
+                </Button>
+              </div>
+              <div>
+                <h3>
+                  New to Growceries?
+                  <Button component={Link} to="/Signup" variant="contained" color="primary" style={style}>
+                    Sign up here
+                </Button>
+                </h3>
+              </div>
+            </ThemeProvider>
           </div>
-          <Button component={Link} to="/Signup" variant="contained" color="primary" style={style}>
-            Sign up
-          </Button>
-        </ThemeProvider>
+        </div>
+        <div className="row">
+          <div className="leftColumn2">
+            <div className="leftColumnHeading">
+                Why choose Growceries?
+            </div>
+            <div className="leftColumnBody">
+              <div>
+                Growceries delivers in as little as an hour from local grocery stores.
+                Get the best products for the best prices delivered right to your doostep.
+              </div>
+            </div>
+          </div>
+          <div className="rightColumn2">
+
+          </div>
+        </div>
       </div>
     );
   }
