@@ -129,6 +129,10 @@ class Signup extends Component {
                     <Button component={Link} to="/" variant="contained" color="primary" style={style}>
                         Log in here
                     </Button>
+                    <br />
+                    <Button variant="contained" color="primary" style={style}>
+                        Extra button for database content dump
+                    </Button>
                 </ThemeProvider>
             </div>
         )  
