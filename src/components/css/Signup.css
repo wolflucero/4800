@@ -4,7 +4,7 @@
 
 .signupContainer::after {
   content: "";
-  background: url("./2.jpg");
+  background: url("../images/2.jpg");
   top: 0;
   left: 0;
   bottom: 0;
