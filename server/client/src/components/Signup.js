@@ -28,48 +28,34 @@ class Signup extends Component {
   constructor() {
     super();
     this.state = {
-      firstname: '',
-      lastname: '',
-      email: '',
-      phone: ''
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: ""
     }
-
-    this.firstname = this.firstname.bind(this);
-    this.lastname = this.lastname.bind(this);
-    this.email = this.email.bind(this);
-    this.phone = this.phone.bind(this);
     this.register = this.register.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  firstname(event) {
-    this.setState({ firstname: event.target.value });
-  }
-
-  lastname(event) {
-    this.setState({ lastname: event.target.value });
-  }
-
-  email(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  phone(event) {
-    this.setState({ phone: event.target.value });
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   register(event) {
-    console.log('start fetch')
+    const { firstname, lastname, email, phone } = this.state;
     fetch('/register', {
-      method: 'post',
+      method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        // 'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        phone: this.state.phone,
-        email: this.state.email
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        phone: phone
       })
     }).then((Response) => Response.json())
       .then((Results) => {
@@ -83,82 +69,41 @@ class Signup extends Component {
   render() {
     return (
       <div className="signupContainer">
-        <Form>
-          <ThemeProvider theme={theme}>
-            <div>
-              <Navbar />
-            </div>
-            <div className="heading">
-              <h1>Create your Growceries account here!</h1>
-            </div>
-            <TextField
-              required
-              variant="standard"
-              type="string"
-              color="primary"
-              style={style}
-              label="First Name"
-              onChange={(event, newValue) =>
-                this.setState({ firstname: newValue })
-              }
-            ></TextField>
-            <TextField
-              required
-              variant="standard"
-              type="string"
-              color="primary"
-              style={style}
-              label="Last Name"
-              onChange={(event, newValue) =>
-                this.setState({ lastname: newValue })
-              }
-            ></TextField>
-            <br />
-            <TextField
-              required
-              variant="standard"
-              type="string"
-              color="primary"
-              style={style}
-              label="Email"
-              onChange={(event, newValue) => this.setState({ email: newValue })}
-            ></TextField>
-            <br />
-            <TextField
-              required
-              variant="standard"
-              type="string"
-              color="primary"
-              style={style}
-              label="Phone Number"
-              onChange={(event, newValue) =>
-                this.setState({ phone: newValue })
-              }
-            ></TextField>
-            <br />
-            <Button
-              onClick={this.register}
-              variant="contained"
-              color="primary"
-              style={style}
-            >
-              Sign up
-            </Button>
-            <div>
-              <h3>Already have an account?</h3>
-            </div>
-            <Button
-              component={Link}
-              to="/"
-              variant="contained"
-              color="primary"
-              style={style}
-            >
-              Log in here
-            </Button>
-            <br />
-          </ThemeProvider>
-        </Form>
+        <form onSubmit={this.register}>
+          <input
+            type="firstname"
+            name="firstname"
+            placeholder="First Name"
+            value={this.state.firstname}
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="lastname"
+            name="lastname"
+            placeholder="Last Name"
+            value={this.state.lastname}
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="phone"
+            name="phone"
+            placeholder="Phone"
+            value={this.state.phone}
+            onChange={this.handleChange}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
       </div>
     );
   }
