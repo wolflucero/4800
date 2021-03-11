@@ -1,5 +1,6 @@
 .signupContainer {
     font-family: Arial;
+    align-items: center;
 }
 
 .signupContainer::after {
