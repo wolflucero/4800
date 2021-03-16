@@ -14,10 +14,10 @@ module.exports = {
         console.log(req)
         pool.query('SELECT * FROM Customer', (err, rows, fields) => {
             if (!err) {
-                res.send(rows)
+                res.send(rows);
             }
             else {
-                console.log(err)
+                console.log(err);
             }
         })
     }
